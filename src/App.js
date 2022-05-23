@@ -3,31 +3,25 @@ import TodoList from "./TodoList"
 import AddTodoForm from "./AddTodoForm"
 
 
-/*function Search(){
-  const handleChange = (event) => {
-    console.log(event);
-  }
-  return(
-    <div>
-      <label htmlFor="search">Search: </label>
-      <input id="search" type = "text" onChange={handleChange} />
-    </div>
-  )
-  }*/
-
 function App() {
-
   const [todoList, setTodoList] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(true);
+  
+  const addTodo = (newTodo) => {
+    setTodoList([...todoList, newTodo])
+  }
 
   React.useEffect(() => {
-    new Promise((resolve, reject) =>
-      setTimeout(
-        () => resolve({ data: { todoList: JSON.parse(localStorage.getItem('savedTodoList')) || [] } }), 2000))
-      .then((result) => {
-        setTodoList(result.data.todoList);
-        setIsLoading(false)
-      });
+    fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`, {
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`
+      }
+    })
+      .then(result => result.json())
+      .then(result => {
+        setTodoList(result.records);
+        setIsLoading(false);
+      })
   }, []);
 
   React.useEffect(() => {
@@ -35,10 +29,6 @@ function App() {
       localStorage.setItem('savedTodoList', JSON.stringify(todoList));
     }
   }, [todoList]);
-
-  const addTodo = (newTodo) => {
-    setTodoList([...todoList, newTodo])
-  }
 
   const removeTodo = (id) => {
     const deletedTodoList = todoList.filter((todo) => todo.id !== id);
