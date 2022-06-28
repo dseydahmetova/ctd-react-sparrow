@@ -1,6 +1,7 @@
 import * as React from 'react';
 import TodoList from "./TodoList"
 import AddTodoForm from "./AddTodoForm"
+import './index.css'
 
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
       {isLoading ? (
         <p>Loading...</p>) :
         (
-          <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+          <TodoList todoList={todoList} onRemoveTodo={removeTodo}/>
         )}
     </>
   );

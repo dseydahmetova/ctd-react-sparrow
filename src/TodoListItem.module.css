@@ -1,0 +1,34 @@
+.ListItem {
+    font-weight: 800;
+    font-size: large;
+    color: rgb(69, 69, 114);
+    text-align: left;;
+    padding: 15px;
+    margin:5 px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+button {
+    height:3rem;
+    font-size:1rem;
+    padding:1rem;
+    margin-left: 12px;
+    color:rgb(204, 76, 76);
+    border-radius:0.5rem;
+    border-color: azure;
+    background-color:rgb(252, 215, 221);
+    cursor: pointer;
+    transition: all 0.3s ease ease-in-out;
+}
+
+button:hover {
+    background-color: rgb(243, 134, 134);
+    color: white;
+}
+
+.styledInput {
+    margin: 2rem;
+    color: rgb(179, 35, 35);
+    text-align: center;
+    font-size:2.2rem;
+}

@@ -1,0 +1,27 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color:rgb(226, 214, 226);
+}
+
+h1 {
+  font-size: 40px;
+  margin: 10px;
+  padding: 10px;
+  align-content: center;
+  color:rgb(248, 245, 248);
+  background-color: pink;
+  text-align: center;
+}
+
+input {
+  margin-bottom: 10px;
+  font-size: 22px;
+  padding: 2px 4px;
+  width: 300px;
+}
+
+
